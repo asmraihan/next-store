@@ -18,7 +18,9 @@ const NavbarActions = () => {
   return (
     <div className="ml-auto flex items-center gap-x-4">
       <Combobox />
-      <Button className='flex items-center rounded-md bg-black px-4 py-2'>
+      <Button className='flex items-center  py-5 rounded-md bg-black '
+      size={'sm'}
+      >
         <ShoppingBag
           size={20}
           color='white'
