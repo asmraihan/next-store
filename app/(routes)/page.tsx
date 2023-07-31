@@ -1,8 +1,11 @@
 import React from 'react'
+import { Badge } from "@/components/ui/badge"
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <div>
+      <Badge variant="outline">HomePage</Badge>
+    </div>
   )
 }
 
