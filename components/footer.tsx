@@ -1,12 +1,13 @@
 import Link from "next/link"
 
-import { siteConfig } from "@/config/site"
+// import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
-import { SubscribeToNewsletterForm } from "@/components/forms/subscribe-to-newsletter-form"
+// import { SubscribeToNewsletterForm } from "@/components/forms/subscribe-to-newsletter-form"
 import { Icons } from "@/components/icons"
-import { ThemeToggle } from "@/components/layouts/theme-toggle"
+// import { ThemeToggle } from "@/components/layouts/theme-toggle"
 import { Shell } from "@/components/shells/shell"
+import { SubscribeToNewsletterForm } from "./forms/src/components/forms/subscribe-to-newsletter-form"
 
 export function Footer() {
   return (
@@ -27,10 +28,11 @@ export function Footer() {
               className="flex items-center space-x-2"
             >
               <Icons.logo className="h-6 w-6" aria-hidden="true" />
-              <span className="font-bold">{siteConfig.name}</span>
+              {/* <span className="font-bold">{siteConfig.name}</span> */}
+              <span className="font-bold">NEXT_STORE</span>
             </Link>
           </section>
-          <section
+          {/* <section
             id="footer-links"
             aria-labelledby="footer-links-heading"
             className="grid flex-1 grid-cols-1 gap-10 xs:grid-cols-2 sm:grid-cols-4"
@@ -55,7 +57,7 @@ export function Footer() {
                 </ul>
               </div>
             ))}
-          </section>
+          </section> */}
           <section
             id="newsletter"
             aria-labelledby="newsletter-heading"
@@ -75,19 +77,20 @@ export function Footer() {
           <div className="flex-1 text-left text-sm leading-loose text-muted-foreground">
             Built by{" "}
             <a
-              aria-label="Kickflip tutorial on YouTube"
-              href="https://twitter.com/sadmann17"
+              aria-label="Asm Raihan"
+              href="https://github.com/asmraihan"
               target="_blank"
               rel="noreferrer"
               className="font-semibold transition-colors hover:text-foreground"
             >
-              Sadman
+              Asm Raihan
             </a>
             .
           </div>
           <div className="flex items-center space-x-1">
             <Link
-              href={siteConfig.links.github}
+              // href={siteConfig.links.github}
+              href='/'
               target="_blank"
               rel="noreferrer"
             >
@@ -103,7 +106,7 @@ export function Footer() {
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
           </div>
         </section>
       </Shell>
