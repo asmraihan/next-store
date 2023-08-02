@@ -17,24 +17,29 @@ import {
 import Link from "next/link"
 import { AspectRatio } from "./aspect-ratio"
 import { Button, buttonVariants } from "./button"
+import { Expand, ShoppingCart } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 interface ProductCardProps {
     data: Product,
-
 }
+const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+});
 
 const ProductCard: React.FC<ProductCardProps> = ({
     data,
-
 }) => {
-
-
+    // const router = useRouter()
+    // const handleClick = () => {
+    //     router.push(`/product/${data?.id}`)
+    // }
 
     const [isPending, startTransition] = React.useTransition()
     return (
         <Card
             className={cn("h-full overflow-hidden rounded-sm")}
-
         >
             <Link
                 aria-label={`View ${data.name} details`}
@@ -43,15 +48,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 <CardHeader className="border-b p-0">
                     <AspectRatio ratio={4 / 3}>
                         {data?.images?.length ? (
-                            //@ts-ignore
+
                             <Image
-                                src={
-                                    data.images[0]?.url ?? "/images/product-placeholder.webp"
-                                }
+                                src={data.images[0]?.url ?? "/images/product-placeholder.webp"}
                                 alt={data.images[0]?.url ?? data.name}
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 fill
-                                className="object-cover"
+                                className="object-cover aspect-square "
                                 loading="lazy"
                             />
                         ) : (
@@ -70,36 +73,31 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     </AspectRatio>
                 </CardHeader>
             </Link>
-            <Link
-                aria-label={`View ${data.name} details`}
-                href={`/product/${data.id}`}
-            >
-                <CardContent className="grid gap-2.5 p-4">
-                    <CardTitle className="line-clamp-1">{data.name}</CardTitle>
-                    <CardDescription className="line-clamp-2">
-                        {(data.price)}
-                    </CardDescription>
-                </CardContent>
-            </Link>
-            <CardFooter className="p-4">
 
+            <CardContent className="grid gap-2.5 p-4">
+                <CardTitle className="line-clamp-1">{data.name}</CardTitle>
+                <CardDescription className="line-clamp-2 text-neutral-700 font-medium">
+                    {(data.category.name)}
+                </CardDescription>
+                <CardDescription className="line-clamp-2 text-lg font-bold text-black">
+                    {formatter.format(Number(data.price))}
+                </CardDescription>
+            </CardContent>
+
+            <CardFooter className="p-4">
                 <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:justify-between">
-                    <Link
+                    <Button
                         aria-label="Preview product"
-                        href={`/product-preview/${data.id}`}
-                        className={buttonVariants({
-                            variant: "outline",
-                            size: "sm",
-                            className: "h-8 w-full rounded-sm",
-                        })}
+                        variant={"outline"}
+                        size={"sm"}
+                        className="h-8 w-full rounded-sm"
                     >
-                        Preview
-                    </Link>
+                        <Expand className="w-4 h-4 mr-2" />Preview
+                    </Button>
                     <Button
                         aria-label="Add to cart"
                         size="sm"
                         className="h-8 w-full rounded-sm"
-
                         disabled={isPending}
                     >
                         {isPending && (
@@ -108,10 +106,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
                                 aria-hidden="true"
                             />
                         )}
-                        Add to cart
+                        <ShoppingCart className="w-4 h-4 mr-2" /> Add to cart
                     </Button>
                 </div>
-
             </CardFooter>
         </Card>
     )
