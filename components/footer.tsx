@@ -8,8 +8,12 @@ import { Icons } from "@/components/icons"
 // import { ThemeToggle } from "@/components/layouts/theme-toggle"
 import { Shell } from "@/components/shells/shell"
 import { SubscribeToNewsletterForm } from "./forms/src/components/forms/subscribe-to-newsletter-form"
+import getCategories from "@/actions/get-categories"
 
-export function Footer() {
+export async function Footer () {
+
+  const categories = await getCategories()
+
   return (
     <footer className="w-full border-t bg-background">
       <Shell as="div">
@@ -32,32 +36,60 @@ export function Footer() {
               <span className="font-bold">NEXT_STORE</span>
             </Link>
           </section>
-          {/* <section
+
+          <section
             id="footer-links"
             aria-labelledby="footer-links-heading"
             className="grid flex-1 grid-cols-1 gap-10 xs:grid-cols-2 sm:grid-cols-4"
           >
-            {siteConfig.footerNav.map((item) => (
-              <div key={item.title} className="space-y-3">
-                <h4 className="text-base font-medium">{item.title}</h4>
+             <div className="space-y-3">
+                <h4 className="text-base font-medium">Categories</h4>
                 <ul className="space-y-3">
-                  {item.items.map((link) => (
-                    <li key={link.title}>
+                  {categories.map((link) => (
+                    <li key={link.name}>
                       <Link
-                        href={link.href}
-                        target={link?.external ? "_blank" : undefined}
-                        rel={link?.external ? "noreferrer" : undefined}
+                        href={`/category/${link.id}`}
+                        // target={link?.name ? "_blank" : undefined}
+                        rel={link?.name ? "noreferrer" : undefined}
                         className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                       >
-                        {link.title}
-                        <span className="sr-only">{link.title}</span>
+                        {link.name}
+                        <span className="sr-only">{link.name}</span>
                       </Link>
                     </li>
                   ))}
                 </ul>
               </div>
-            ))}
-          </section> */}
+             <div className="space-y-3">
+                <h4 className="text-base font-medium">Policies</h4>
+                <ul className="space-y-3">
+                   <li>First</li>
+                   <li>Secnd</li>
+                   <li>First</li>
+                   <li>Forth</li>
+                </ul>
+              </div>
+             <div className="space-y-3">
+                <h4 className="text-base font-medium">Policies</h4>
+                <ul className="space-y-3">
+                   <li>First</li>
+                   <li>Secnd</li>
+                   <li>First</li>
+                   <li>Forth</li>
+                </ul>
+              </div>
+             <div className="space-y-3">
+                <h4 className="text-base font-medium">Policies</h4>
+                <ul className="space-y-3">
+                   <li>First</li>
+                   <li>Secnd</li>
+                   <li>First</li>
+                   <li>Forth</li>
+                </ul>
+              </div>
+          </section>
+
+
           <section
             id="newsletter"
             aria-labelledby="newsletter-heading"
