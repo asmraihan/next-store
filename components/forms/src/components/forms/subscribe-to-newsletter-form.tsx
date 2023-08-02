@@ -42,7 +42,7 @@ export function SubscribeToNewsletterForm() {
                     email: data.email,
                     // This token is used as a search param in the email preferences page to identify the subscriber.
                     token: crypto.randomUUID(),
-                    subject: "Welcome to Skateshop13",
+                    subject: "Welcome to NEXT-STORE",
                 }),
             })
 
@@ -83,7 +83,7 @@ export function SubscribeToNewsletterForm() {
                             <FormLabel className="sr-only">Email</FormLabel>
                             <FormControl>
                                 <Input
-                                    placeholder="skate@gmail.com"
+                                    placeholder="info@nextstore.com"
                                     className="pr-12"
                                     {...field}
                                 />

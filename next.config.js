@@ -2,7 +2,11 @@
 const nextConfig = {
     // add host image
     images: {
-        domains: ['i.ibb.co'],
+        domains: [
+            "tailwindui.com",
+            "res.cloudinary.com",
+            "i.ibb.co"
+        ]
     },
 }
 
