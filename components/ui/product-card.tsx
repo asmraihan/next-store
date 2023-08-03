@@ -20,6 +20,7 @@ import { Button, buttonVariants } from "./button"
 import { Expand, ShoppingCart } from "lucide-react"
 import { useRouter } from "next/navigation"
 import usePreviewModal from "@/hooks/use-preview-modal"
+import useCart from "@/hooks/use-cart"
 
 interface ProductCardProps {
     data: Product,
@@ -43,9 +44,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
     const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
         event.stopPropagation()
         previewModal.onOpen(data)
-
-        
     }
+    const cart = useCart()
+    const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
+        event.stopPropagation()
+        cart.addItem(data)
+    }
+
 
     return (
         <Card
@@ -110,6 +115,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                         size="sm"
                         className="h-8 w-full rounded-sm"
                         disabled={isPending}
+                        onClick={onAddToCart}
                     >
                         {isPending && (
                             <Icons.spinner
