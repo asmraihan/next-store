@@ -13,10 +13,14 @@ import {
 } from "@/components/ui/sheet"
 import useCart from "@/hooks/use-cart"
 import { ShoppingBag, ShoppingCart } from "lucide-react"
+import CartItem from "./cart-item"
+import Summary from "./Summary"
 
 
 const CartSheet = () => {
     const cart = useCart()
+
+
     return (
         <Sheet>
             <SheetTrigger asChild>
@@ -37,24 +41,22 @@ const CartSheet = () => {
             Make changes to your profile here.
           </SheetDescription> */}
                 </SheetHeader>
-                <div className="grid gap-4 py-4">
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="name" className="text-right">
-                            Name
-                        </Label>
-                        <Input id="name" value="Pedro Duarte" className="col-span-3" />
+                <div className="bg-white mt-4">
+                    <div className="">
+                        {cart.items.length === 0 && <p className="text-neutral-500">No items added to cart.</p>}
+                        <ul>
+                            {cart.items.map((item) => (
+                                <CartItem key={item.id} data={item} />
+                            ))}
+                        </ul>
                     </div>
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="username" className="text-right">
-                            Username
-                        </Label>
-                        <Input id="username" value="@peduarte" className="col-span-3" />
-                    </div>
+
                 </div>
                 <SheetFooter>
-                    <SheetClose asChild>
+                    {/* <SheetClose asChild>
                         <Button type="submit">Save changes</Button>
-                    </SheetClose>
+                    </SheetClose> */}
+                    <Summary />
                 </SheetFooter>
             </SheetContent>
         </Sheet>
