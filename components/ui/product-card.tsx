@@ -1,7 +1,7 @@
 'use client'
 
 import { Product } from "@/types"
-import React, { startTransition } from "react"
+import React, { MouseEventHandler, startTransition } from "react"
 import { Icons } from "../icons"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
@@ -19,6 +19,7 @@ import { AspectRatio } from "./aspect-ratio"
 import { Button, buttonVariants } from "./button"
 import { Expand, ShoppingCart } from "lucide-react"
 import { useRouter } from "next/navigation"
+import usePreviewModal from "@/hooks/use-preview-modal"
 
 interface ProductCardProps {
     data: Product,
@@ -37,6 +38,15 @@ const ProductCard: React.FC<ProductCardProps> = ({
     // }
 
     const [isPending, startTransition] = React.useTransition()
+
+    const previewModal = usePreviewModal()
+    const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
+        event.stopPropagation()
+        previewModal.onOpen(data)
+
+        
+    }
+
     return (
         <Card
             className={cn("h-full overflow-hidden rounded-sm")}
@@ -91,6 +101,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                         variant={"outline"}
                         size={"sm"}
                         className="h-8 w-full rounded-sm"
+                        onClick={onPreview}
                     >
                         <Expand className="w-4 h-4 mr-2" />Preview
                     </Button>
