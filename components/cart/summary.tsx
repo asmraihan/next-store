@@ -3,7 +3,7 @@ import React from 'react'
 
 import axios from "axios";
 import { useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import Currency from "@/components/ui/currency";
 import useCart from "@/hooks/use-cart";
@@ -15,16 +15,17 @@ const Summary = () => {
     const searchParams = useSearchParams()
     const items = useCart((state) => state.items)
     const removeAll = useCart((state) => state.removeAll)
-
+    const router = useRouter()
     useEffect(() => {
         if(searchParams.get("success")){
             toast.success("Payment was successful")
             removeAll()
+            router.push("/")
         }
         if(searchParams.get("canceled")){
             toast.error("Payment was canceled")
         }
-    }, [searchParams, removeAll])
+    }, [searchParams, removeAll, router])
 
     const totalPrice = items.reduce((total, item) => {
         return total + Number(item.price)
