@@ -8,7 +8,7 @@ const CallToAction = () => {
         <section
             id="create-a-store-banner"
             aria-labelledby="create-a-store-banner-heading"
-            className="grid place-items-center gap-6 rounded-lg border bg-card px-6 py-16 text-center text-card-foreground shadow-sm"
+            className="grid place-items-center gap-6 rounded-lg border bg-card px-6 py-16 text-center text-card-foreground shadow-sm my-20"
         >
             <h2 className="text-2xl font-medium sm:text-3xl">
                 Do you want to sell your products on our website?
