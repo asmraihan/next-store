@@ -9,6 +9,7 @@ import { Icons } from "@/components/icons"
 import { Shell } from "@/components/shells/shell"
 import { SubscribeToNewsletterForm } from "./forms/src/components/forms/subscribe-to-newsletter-form"
 import getCategories from "@/actions/get-categories"
+import { Zap } from "lucide-react"
 
 export async function Footer() {
 
@@ -31,7 +32,8 @@ export async function Footer() {
               href="/"
               className="flex items-center space-x-2"
             >
-              <Icons.logo className="h-6 w-6" aria-hidden="true" />
+              {/* <Icons.logo className="h-6 w-6" aria-hidden="true" /> */}
+              <Zap className="h-6 w-6" aria-hidden="true" />
               {/* <span className="font-bold">{siteConfig.name}</span> */}
               <span className="font-bold">NEXT_STORE</span>
             </Link>
@@ -51,7 +53,7 @@ export async function Footer() {
                       href={`/category/${link.id}`}
                       // target={link?.name ? "_blank" : undefined}
                       rel={link?.name ? "noreferrer" : undefined}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                     >
                       {link.name}
                       <span className="sr-only">{link.name}</span>
@@ -81,10 +83,46 @@ export async function Footer() {
             <div className="space-y-3">
               <h4 className="text-base font-medium">Social</h4>
               <ul className="space-y-3">
-                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">Linkedin</li>
-                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">Github</li>
-                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">Discord</li>
-                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">Facebook</li>
+                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  <Link
+                    href="https://www.linkedin.com/in/asmraihan/" 
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold transition-colors hover:text-foreground"
+                  >
+                  Linkedin
+                  </Link>
+                </li>
+                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  <Link
+                    href="https://github.com/asmraihan" 
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold transition-colors hover:text-foreground"
+                  >
+                  Github
+                  </Link>
+                </li>
+                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  <Link
+                    href="https://discord.com/users/asmraihan" 
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold transition-colors hover:text-foreground"
+                  >
+                  Discord
+                  </Link>
+                </li>
+                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  <Link
+                    href="https://www.facebook.com/asmraihanbh/" 
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold transition-colors hover:text-foreground"
+                  >
+                  Facebook
+                  </Link>
+                </li>
               </ul>
             </div>
           </section>
@@ -122,7 +160,7 @@ export async function Footer() {
           <div className="flex items-center space-x-1">
             <Link
               // href={siteConfig.links.github}
-              href='/'
+              href='https://github.com/asmraihan/next-store'
               target="_blank"
               rel="noreferrer"
             >
