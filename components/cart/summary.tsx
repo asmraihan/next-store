@@ -12,20 +12,19 @@ import { Button } from '../ui/button';
 
 
 const Summary = () => {
-    const searchParams = useSearchParams()
+    // const searchParams = useSearchParams()
     const items = useCart((state) => state.items)
-    const removeAll = useCart((state) => state.removeAll)
-    const router = useRouter()
-    useEffect(() => {
-        if(searchParams.get("success")){
-            toast.success("Payment was successful")
-            removeAll()
-            router.push("/")
-        }
-        if(searchParams.get("canceled")){
-            toast.error("Payment was canceled")
-        }
-    }, [searchParams, removeAll, router])
+    // const removeAll = useCart((state) => state.removeAll)
+    // const router = useRouter()
+    // useEffect(() => {
+    //     if(searchParams.get("success")){
+    //         toast.success("Payment was successful")
+    //         removeAll()
+    //     }
+    //     if(searchParams.get("canceled")){
+    //         toast.error("Payment was canceled")
+    //     }
+    // }, [searchParams, removeAll, router])
 
     const totalPrice = items.reduce((total, item) => {
         return total + Number(item.price)
