@@ -34,7 +34,7 @@ const CartSheet = () => {
                     <span className='ml-2 font-medium text-white'>{cart.items.length}</span>
                 </Button>
             </SheetTrigger>
-            <SheetContent className="flex w-full flex-col pr-0 sm:max-w-lg">
+            <SheetContent className="flex w-full flex-col  sm:max-w-lg">
                 <SheetHeader>
                     <SheetTitle className="flex items-center gap-2">  <ShoppingCart size={20} /> <h2>Shopping Cart</h2> </SheetTitle>
                     {/* <SheetDescription >
