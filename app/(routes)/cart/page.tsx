@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from '@/components/ui/button'
 import useCart from '@/hooks/use-cart'
 import Link from 'next/link'
@@ -8,7 +10,7 @@ const CartPage = () => {
   const searchParams = useSearchParams()
 
   const removeAll = useCart((state) => state.removeAll)
-  const router = useRouter()
+  // const router = useRouter()
   useEffect(() => {
     if(searchParams.get("success")){
         toast.success("Payment was successful")
@@ -17,7 +19,7 @@ const CartPage = () => {
     if(searchParams.get("canceled")){
         toast.error("Payment was canceled")
     }
-}, [searchParams, removeAll, router])
+}, [searchParams, removeAll])
 
   return (
     <div className='flex flex-col justify-center items-center w-full h-full'>
