@@ -14,7 +14,7 @@ import {
 import useCart from "@/hooks/use-cart"
 import { ShoppingBag, ShoppingCart } from "lucide-react"
 import CartItem from "./cart-item"
-import Summary from "./Summary"
+import Summary from "./summary"
 
 
 const CartSheet = () => {
@@ -52,12 +52,12 @@ const CartSheet = () => {
                     </div>
 
                 </div>
-                <SheetFooter>
+                <div>
                     {/* <SheetClose asChild>
                         <Button type="submit">Save changes</Button>
                     </SheetClose> */}
                     <Summary />
-                </SheetFooter>
+                </div>
             </SheetContent>
         </Sheet>
     )
