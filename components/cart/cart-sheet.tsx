@@ -24,7 +24,7 @@ const CartSheet = () => {
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <Button className='flex items-center  py-5 rounded-md bg-black '
+                <Button className='flex items-center  py-5 rounded-md bg-black'
                     size={'sm'}
                 >
                     <ShoppingBag
@@ -34,7 +34,7 @@ const CartSheet = () => {
                     <span className='ml-2 font-medium text-white'>{cart.items.length}</span>
                 </Button>
             </SheetTrigger>
-            <SheetContent className="flex w-full flex-col  sm:max-w-lg">
+            <SheetContent className="flex w-full flex-col  sm:max-w-lg overflow-y-auto">
                 <SheetHeader>
                     <SheetTitle className="flex items-center gap-2">  <ShoppingCart size={20} /> <h2>Shopping Cart</h2> </SheetTitle>
                     {/* <SheetDescription >
