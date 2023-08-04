@@ -3,7 +3,6 @@
 import { Button } from '@/components/ui/button'
 import { ShoppingBag } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { Combobox } from './combobox'
 import useCart from '@/hooks/use-cart'
 import CartSheet from './cart/cart-sheet'
 
@@ -22,7 +21,7 @@ const NavbarActions = () => {
 
   return (
     <div className="ml-auto flex items-center gap-x-4">
-      <Combobox />
+  
       <CartSheet />
       
     </div>

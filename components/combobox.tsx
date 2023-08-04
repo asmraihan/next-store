@@ -2,12 +2,8 @@
 
 import * as React from "react"
 import { useRouter } from "next/navigation"
-// import { type Product } from "@/db/schema"
-
 import { cn } from "@/lib/utils"
 import { useDebounce } from "@/hooks/use-debounce"
-
-
 import {
   CommandDialog,
   CommandEmpty,
@@ -18,28 +14,42 @@ import {
 } from "@/components/ui/command"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Icons } from "@/components/icons"
-// import { filterProductsAction } from "@/app/_actions/product"
 import { Button } from "@/components/ui/button"
+import { Product } from "@/types"
 
-export function Combobox() {
-    const [isMacOs, setIsMacOs] = React.useState(false)
+
+interface ComboboxProps {
+  data: Product[]
+}
+
+export const Combobox: React.FC<ComboboxProps> = ({
+  data
+
+}) => {
+  // console.log(data)
+  const [isMacOs, setIsMacOs] = React.useState(false)
   const router = useRouter()
   const [isOpen, setIsOpen] = React.useState(false)
   const [query, setQuery] = React.useState("")
   const debouncedQuery = useDebounce(query, 300)
-  const [data, setData] = React.useState([])
+  // console.log(debouncedQuery)
+  const [product, setProduct] = React.useState([])
+  // console.log(product)
   const [isPending, startTransition] = React.useTransition()
 
-//   React.useEffect(() => {
-//     if (debouncedQuery.length === 0) setData(null)
+  React.useEffect(() => {
+    if (debouncedQuery.length === 0) setProduct(null as any)
 
-//     if (debouncedQuery.length > 0) {
-//       startTransition(async () => {
-//         const data = await filterProductsAction(debouncedQuery)
-//         setData(data)
-//       })
-//     }
-//   }, [debouncedQuery])
+    if (debouncedQuery.length > 0) {
+
+      const filtered = data.filter((product) => {
+        return product.name.toLowerCase().includes(debouncedQuery.toLowerCase())
+      })
+      //@ts-ignore
+      setProduct(filtered)
+
+    }
+  }, [debouncedQuery, data])
 
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -66,8 +76,8 @@ export function Combobox() {
   return (
     <>
       <Button
-        
-        className="relative border bg-white text-black hover:bg-neutral-200 h-9 w-9 p-0 xl:h-10 xl:w-60 xl:justify-start xl:px-3 xl:py-2"
+
+        className="relative border bg-white text-black hover:bg-neutral-200 h-9 w-9 p-2 xl:h-10 xl:w-60 xl:justify-start xl:px-3 xl:py-2 ml-auto mr-2"
         onClick={() => setIsOpen(true)}
       >
         <Icons.search className="h-4 w-4 xl:mr-2" aria-hidden="true" />
@@ -97,27 +107,16 @@ export function Combobox() {
               <Skeleton className="h-8 rounded-sm" />
             </div>
           ) : (
-            data?.map((group) => (
-             
-              <CommandGroup
-                // @ts-ignore 
-                key={group.category}
-                className="capitalize"
-                  // @ts-ignore 
-                heading={group.category}
+            product?.map((item: Product) => (
+              <CommandItem
+                key={item.id}
+                onSelect={() =>
+                  handleSelect(() => router.push(`/product/${item.id}`))
+                }
               >
-                {/* @ts-ignore  */}
-                {group.products.map((item) => (
-                  <CommandItem
-                    key={item.id}
-                    onSelect={() =>
-                      handleSelect(() => router.push(`/product/${item.id}`))
-                    }
-                  >
-                    {item.name}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
+                {item.name}
+              </CommandItem>
+
             ))
           )}
         </CommandList>
