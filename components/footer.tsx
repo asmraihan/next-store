@@ -1,11 +1,9 @@
 import Link from "next/link"
 
-// import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 // import { SubscribeToNewsletterForm } from "@/components/forms/subscribe-to-newsletter-form"
 import { Icons } from "@/components/icons"
-// import { ThemeToggle } from "@/components/layouts/theme-toggle"
 import { Shell } from "@/components/shells/shell"
 import { SubscribeToNewsletterForm } from "./forms/src/components/forms/subscribe-to-newsletter-form"
 import getCategories from "@/actions/get-categories"
@@ -42,7 +40,7 @@ export async function Footer() {
           <section
             id="footer-links"
             aria-labelledby="footer-links-heading"
-            className="grid flex-1 grid-cols-1 gap-10 xs:grid-cols-2 sm:grid-cols-4"
+            className="grid flex-1 grid-cols-2 gap-10 xs:grid-cols-2 sm:grid-cols-4"
           >
             <div className="space-y-3">
               <h4 className="text-base font-medium">Categories</h4>
@@ -53,7 +51,7 @@ export async function Footer() {
                       href={`/category/${link.id}`}
                       // target={link?.name ? "_blank" : undefined}
                       rel={link?.name ? "noreferrer" : undefined}
-                      className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                      className="text-sm text-muted-foreground cursor-pointer font-semibold transition-colors hover:text-foreground"
                     >
                       {link.name}
                       <span className="sr-only">{link.name}</span>
@@ -65,25 +63,25 @@ export async function Footer() {
             <div className="space-y-3">
               <h4 className="text-base font-medium">Help</h4>
               <ul className="space-y-3">
-                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">About</li>
-                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">Contact</li>
-                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">Team</li>
-                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">Support</li>
+                <li className="text-sm text-muted-foreground cursor-pointer font-semibold transition-colors hover:text-foreground">About</li>
+                <li className="text-sm text-muted-foreground cursor-pointer font-semibold transition-colors hover:text-foreground">Contact</li>
+                <li className="text-sm text-muted-foreground cursor-pointer font-semibold transition-colors hover:text-foreground">Team</li>
+                <li className="text-sm text-muted-foreground cursor-pointer font-semibold transition-colors hover:text-foreground">Support</li>
               </ul>
             </div>
             <div className="space-y-3">
               <h4 className="text-base font-medium">Policies</h4>
               <ul className="space-y-3">
-                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">Career</li>
-                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">Health</li>
-                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">Privacy</li>
-                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">Code Of Conduct</li>
+                <li className="text-sm text-muted-foreground cursor-pointer font-semibold transition-colors hover:text-foreground">Career</li>
+                <li className="text-sm text-muted-foreground cursor-pointer font-semibold transition-colors hover:text-foreground">Health</li>
+                <li className="text-sm text-muted-foreground cursor-pointer font-semibold transition-colors hover:text-foreground">Privacy</li>
+                <li className="text-sm text-muted-foreground cursor-pointer font-semibold transition-colors hover:text-foreground">Learn more</li>
               </ul>
             </div>
             <div className="space-y-3">
               <h4 className="text-base font-medium">Social</h4>
               <ul className="space-y-3">
-                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                <li className="text-sm text-muted-foreground cursor-pointer font-semibold transition-colors hover:text-foreground">
                   <Link
                     href="https://www.linkedin.com/in/asmraihan/" 
                     target="_blank"
@@ -93,7 +91,7 @@ export async function Footer() {
                   Linkedin
                   </Link>
                 </li>
-                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                <li className="text-sm text-muted-foreground cursor-pointer font-semibold transition-colors hover:text-foreground">
                   <Link
                     href="https://github.com/asmraihan" 
                     target="_blank"
@@ -103,7 +101,7 @@ export async function Footer() {
                   Github
                   </Link>
                 </li>
-                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                <li className="text-sm text-muted-foreground cursor-pointer font-semibold transition-colors hover:text-foreground">
                   <Link
                     href="https://discord.com/users/asmraihan" 
                     target="_blank"
@@ -113,7 +111,7 @@ export async function Footer() {
                   Discord
                   </Link>
                 </li>
-                <li className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                <li className="text-sm text-muted-foreground cursor-pointer font-semibold transition-colors hover:text-foreground">
                   <Link
                     href="https://www.facebook.com/asmraihanbh/" 
                     target="_blank"
@@ -176,7 +174,6 @@ export async function Footer() {
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
-            {/* <ThemeToggle /> */}
           </div>
         </section>
       </Shell>

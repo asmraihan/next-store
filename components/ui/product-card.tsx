@@ -115,7 +115,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             </CardContent>
 
             <CardFooter className="p-4">
-                <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:justify-between">
+                <div className="flex w-full items-center gap-2 flex-row justify-between">
                     <Button
                         aria-label="Preview product"
                         variant={"outline"}
