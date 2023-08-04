@@ -43,7 +43,9 @@ const CartSheet = () => {
                 </SheetHeader>
                 <div className="bg-white mt-4">
                     <div className="">
-                        {cart.items.length === 0 && <p className="text-neutral-500">No items added to cart.</p>}
+                        {cart.items.length === 0 && 
+                        <div className="flex justify-center items-center"><p className="text-neutral-500">No items added to cart.</p></div>
+                        }
                         <ul>
                             {cart.items.map((item) => (
                                 <CartItem key={item.id} data={item} />

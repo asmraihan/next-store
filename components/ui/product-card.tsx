@@ -1,7 +1,7 @@
 'use client'
-
+import * as React from "react"
 import { Product } from "@/types"
-import React, { MouseEventHandler, startTransition } from "react"
+import { MouseEventHandler } from "react"
 import { Icons } from "../icons"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
@@ -21,6 +21,7 @@ import { Expand, ShoppingCart } from "lucide-react"
 import { useRouter } from "next/navigation"
 import usePreviewModal from "@/hooks/use-preview-modal"
 import useCart from "@/hooks/use-cart"
+import { toast } from "react-hot-toast"
 
 interface ProductCardProps {
     data: Product,
@@ -38,17 +39,31 @@ const ProductCard: React.FC<ProductCardProps> = ({
     //     router.push(`/product/${data?.id}`)
     // }
 
+    const cart = useCart()
     const [isPending, startTransition] = React.useTransition()
 
     const previewModal = usePreviewModal()
+
     const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
         event.stopPropagation()
         previewModal.onOpen(data)
     }
-    const cart = useCart()
+
     const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
         event.stopPropagation()
-        cart.addItem(data)
+
+        startTransition(async () => {
+            try {
+                await cart.addItem(data)
+                // toast.success("Added to cart.")
+            } catch (error) {
+                error instanceof Error
+                    ? toast.error(error.message)
+                    : toast.error("Something went wrong, please try again.")
+            }
+        })
+
+
     }
 
 
@@ -123,7 +138,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
                                 aria-hidden="true"
                             />
                         )}
-                        <ShoppingCart className="w-4 h-4 mr-2" /> Add to cart
+                        {!isPending && (
+                            <ShoppingCart className="w-4 h-4 mr-2" />
+                        )} Add to cart
                     </Button>
                 </div>
             </CardFooter>
