@@ -29,7 +29,7 @@ const Info: React.FC<InfoProps> = ({
         })
     }
     return (
-        <div >
+        <div className="lg:ml-12 lg:mt-10">
             <h1 className='text-3xl font-bold text-gray-900'>{data.name}</h1>
             <div className='mt-3 flex items-end justify-between'>
                 <p className='text-2xl text-gray-900 font-semibold '>
@@ -57,7 +57,7 @@ const Info: React.FC<InfoProps> = ({
                 <Button
                     aria-label="Add to cart"
                     size="lg"
-                    className=" rounded-sm"
+                    className="w-full rounded-sm"
                     disabled={isPending}
                     onClick={onAddToCart}
                 >
