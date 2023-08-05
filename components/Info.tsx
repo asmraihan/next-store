@@ -7,6 +7,7 @@ import { ShoppingCart } from 'lucide-react'
 import useCart from '@/hooks/use-cart'
 import { toast } from 'react-hot-toast'
 import { Icons } from "./icons"
+import Currency from "./ui/currency"
 interface InfoProps {
     data: Product
 }
@@ -33,7 +34,7 @@ const Info: React.FC<InfoProps> = ({
             <h1 className='text-3xl font-bold text-gray-900'>{data.name}</h1>
             <div className='mt-3 flex items-end justify-between'>
                 <p className='text-2xl text-gray-900 font-semibold '>
-                    ${data.price}
+                 <Currency value={data.price} />
                 </p>
             </div>
             <hr className='my-4 ' />
