@@ -6,6 +6,7 @@ import getBillboard from '@/actions/get-billboard'
 import getProducts from '@/actions/get-products'
 import CallToAction from '@/components/call-to-action'
 import ProductList from '@/components/product-list'
+import SalesMetrics from '@/components/sales-metrics'
 
 export const revalidate = 0 /* no caching */
 
@@ -25,6 +26,9 @@ const HomePage = async () => {
         </div>
         <div className='space-y-10 pb-10'>
           <CallToAction />
+        </div>
+        <div className='space-y-4 pb-10'>
+          <SalesMetrics />
         </div>
       </Container>
     </div>
