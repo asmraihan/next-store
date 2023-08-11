@@ -19,7 +19,7 @@ export const Carousel:React.FC<CarouselProps> = async({
   const carouselProducts = [...products, ...products, ...products];
 
   return (
-    <div className=" w-full overflow-x-auto lg:overflow-hidden pb-6 pt-1">
+    <div className="w-full overflow-x-auto lg:overflow-hidden pb-6 pt-1">
       <ul className="flex animate-carousel gap-4">
         {carouselProducts.map((product, i) => (
           <li
