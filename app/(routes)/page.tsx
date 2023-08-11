@@ -9,7 +9,8 @@ import ProductList from '@/components/product-list'
 import SalesMetrics from '@/components/sales-metrics'
 import Sponsor from '@/components/sponsors'
 import { ThreeItemGrid } from '@/components/grid/three-item'
-
+import { Carousel } from '@/components/carousel'
+import { Suspense } from 'react';
 export const revalidate = 0 /* no caching */
 
 const HomePage = async () => {
@@ -26,7 +27,12 @@ const HomePage = async () => {
         <div className=''>
           <ThreeItemGrid items={products} />
         </div>
-        <div className='flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8'>
+     
+          <Suspense>
+            <Carousel items={products} />
+          </Suspense>
+    
+        <div className='flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8 mt-20'>
           <ProductList title="Featured Products" items={products} />
         </div>
         <div className='space-y-10 pb-10'>
