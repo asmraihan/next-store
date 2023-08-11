@@ -8,6 +8,7 @@ import CallToAction from '@/components/call-to-action'
 import ProductList from '@/components/product-list'
 import SalesMetrics from '@/components/sales-metrics'
 import { ThreeItemGrid } from '@/components/grid/three-item'
+import Sponsor from '@/components/sponsors'
 
 export const revalidate = 0 /* no caching */
 
@@ -33,6 +34,9 @@ const HomePage = async () => {
         </div>
         <div className='space-y-4 pb-10'>
           <SalesMetrics />
+        </div>
+        <div className='pb-10'>
+          <Sponsor />
         </div>
       </Container>
     </div>
