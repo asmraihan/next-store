@@ -8,9 +8,12 @@ const CallToAction = () => {
         <section
             id="create-a-store-banner"
             aria-labelledby="create-a-store-banner-heading"
-            className="grid place-items-center gap-6 rounded-lg border bg-card px-6 py-16 text-center text-card-foreground shadow-sm my-20"
+            className="grid place-items-center gap-6 rounded-lg border bg-card px-6 py-8 lg:py-16 text-center text-card-foreground shadow-sm my-10 lg:my-20 mx-4"
         >
-            <h2 className="text-2xl font-medium sm:text-3xl">
+            <h2 className="text-2xl font-bold sm:text-3xl">
+               Check out the inventory
+            </h2>
+            <h2 className="text-xl font-medium sm:text-3xl">
                 Do you want to sell your products on our website?
             </h2>
             <Link href="https://next-admin-gray.vercel.app/">

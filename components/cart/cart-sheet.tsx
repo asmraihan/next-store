@@ -54,7 +54,7 @@ const CartSheet = () => {
                     </div>
 
                 </div>
-                <div>
+                <div className="mt-auto">
                     {/* <SheetClose asChild>
                         <Button type="submit">Save changes</Button>
                     </SheetClose> */}

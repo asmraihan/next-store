@@ -7,15 +7,15 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 
 const SalesMetrics = () => {
     return (
-        <>
-            <h2 className="text-2xl font-extrabold sm:text-3xl">
+        <div className='mx-4 lg:mx-0'>
+            <h2 className="text-2xl font-extrabold sm:text-3xl mb-2">
                 Recent Sales
             </h2>
-            <h2 className="text-xl font-medium sm:text-3xl text-gray-700">
+            <h2 className="text-xl font-medium sm:text-3xl text-gray-700 mb-4">
                 Next Store made 365 sales this month.
             </h2>
-            <div className="flex gap-8">
-                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2 w-1/2">
+            <div className="flex flex-col lg:flex-row gap-8 ">
+                <div className="grid gap-4 grid-cols-2 md:grid-cols-2 lg:grid-cols-2 lg:w-1/2">
                     <Card>
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                             <CardTitle className="text-sm font-medium">
@@ -118,10 +118,10 @@ const SalesMetrics = () => {
                         </CardContent>
                     </Card>
                 </div>
-                <div className='w-1/2 space-y-2'>
+                <div className='lg:w-1/2 space-y-2'>
                     <Card className="flex items-center p-3">
                         <Avatar className="h-9 w-9">
-                            <AvatarImage src="/avatars/01.png" alt="Avatar" />
+                            <AvatarImage src="/images/02.png" alt="Avatar" />
                             <AvatarFallback>OM</AvatarFallback>
                         </Avatar>
                         <div className="ml-4 space-y-1">
@@ -134,7 +134,7 @@ const SalesMetrics = () => {
                     </Card>
                     <Card className="flex items-center p-3">
                         <Avatar className="h-9 w-9">
-                            <AvatarImage src="/avatars/01.png" alt="Avatar" />
+                            <AvatarImage src="/images/05.png" alt="Avatar" />
                             <AvatarFallback>OM</AvatarFallback>
                         </Avatar>
                         <div className="ml-4 space-y-1">
@@ -147,7 +147,7 @@ const SalesMetrics = () => {
                     </Card>
                     <Card className="flex items-center p-3">
                         <Avatar className="h-9 w-9">
-                            <AvatarImage src="/avatars/01.png" alt="Avatar" />
+                            <AvatarImage src="/images/02.png" alt="Avatar" />
                             <AvatarFallback>OM</AvatarFallback>
                         </Avatar>
                         <div className="ml-4 space-y-1">
@@ -160,7 +160,7 @@ const SalesMetrics = () => {
                     </Card>
                     <Card className="flex items-center p-3">
                         <Avatar className="h-9 w-9">
-                            <AvatarImage src="/avatars/01.png" alt="Avatar" />
+                            <AvatarImage src="/images/05.png" alt="Avatar" />
                             <AvatarFallback>OM</AvatarFallback>
                         </Avatar>
                         <div className="ml-4 space-y-1">
@@ -173,7 +173,7 @@ const SalesMetrics = () => {
                     </Card>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
