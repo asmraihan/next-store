@@ -18,8 +18,8 @@ const Sponsor = () => {
 
                     <div className="pt-8 rounded-xl bg-white">
 
-                        <div className="flex sm:flex-wrap lg:flex-nowrap items-center gap-10 w-full">
-                            <div className="w-1/3 sm:w-1/6 flex justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl">
+                        <div className="flex sm:flex-wrap lg:flex-nowrap items-center gap-10 w-full ">
+                            <div className="w-1/3 sm:w-1/6 flex flex-col group gap-2 justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl mt-auto">
                                 {/* <div
                 className='rounded-xl w-12 relative aspect-square md:aspect-[2.4/1] overflow-hidden bg-cover'
                 style={{ 
@@ -40,8 +40,14 @@ const Sponsor = () => {
                                     width={80}
                                     className='focus:outline-none'
                                 />
+                                {/* make a text appear on hover */}
+                                <p
+                                    className='text-white text-2xl font-bold group-hover:text-black  transition duration-300'
+                                >
+                                    Next JS
+                                </p>
                             </div>
-                            <div className="w-1/3 sm:w-1/6 flex justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl ">
+                            <div className="w-1/3 sm:w-1/6 flex flex-col group gap-2 justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl mt-auto">
                                 <Image
                                     src='/images/typescript.png'
                                     alt='image'
@@ -49,8 +55,13 @@ const Sponsor = () => {
                                     width={80}
                                     className='focus:outline-none'
                                 />
+                                <p
+                                    className='text-white text-2xl font-bold group-hover:text-black  transition duration-300'
+                                >
+                                    Typescript
+                                </p>
                             </div>
-                            <div className="w-1/3 sm:w-1/6 flex justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl">
+                            <div className="w-1/3 sm:w-1/6 flex flex-col group gap-2 justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl mt-auto">
                                 <Image
                                     src='/images/tailwind.png'
                                     alt='image'
@@ -58,8 +69,13 @@ const Sponsor = () => {
                                     width={100}
                                     className='focus:outline-none'
                                 />
+                                <p
+                                    className='text-white text-2xl font-bold group-hover:text-black  transition duration-300'
+                                >
+                                    Tailwind
+                                </p>
                             </div>
-                            <div className="w-1/3 sm:w-1/6 flex justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl">
+                            <div className="w-1/3 sm:w-1/6 flex flex-col group gap-2 justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl mt-auto">
                                 <Image
                                     src='/images/shadcn.png'
                                     alt='image'
@@ -67,8 +83,13 @@ const Sponsor = () => {
                                     width={80}
                                     className='focus:outline-none'
                                 />
+                                <p
+                                    className='text-white text-2xl font-bold group-hover:text-black  transition duration-300'
+                                >
+                                    Shadcn/ui
+                                </p>
                             </div>
-                            <div className="w-1/3 sm:w-1/6 flex justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl">
+                            <div className="w-1/3 sm:w-1/6 flex flex-col group gap-2 justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl mt-auto">
                                 <Image
                                     src='/images/zustand.png'
                                     alt='image'
@@ -76,8 +97,13 @@ const Sponsor = () => {
                                     width={200}
                                     className='focus:outline-none'
                                 />
+                                <p
+                                    className='text-white text-2xl font-bold group-hover:text-black  transition duration-300'
+                                >
+                                    Zustand
+                                </p>
                             </div>
-                            <div className="w-1/3 sm:w-1/6 flex justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl">
+                            <div className="w-1/3 sm:w-1/6 flex flex-col group gap-2 justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl mt-auto">
                                 <Image
                                     src='/images/stripe.png'
                                     alt='image'
@@ -85,6 +111,11 @@ const Sponsor = () => {
                                     width={200}
                                     className='focus:outline-none'
                                 />
+                                <p
+                                    className='text-white text-2xl font-bold group-hover:text-black  transition duration-300'
+                                >
+                                    Stripe
+                                </p>
                             </div>
                         </div>
                     </div>
