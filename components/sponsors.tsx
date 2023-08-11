@@ -14,11 +14,11 @@ const Sponsor = () => {
                 Tech Stack Used
             </h2>
             <div>
-                <div className="w-full">
+                <div className="w-full ">
 
                     <div className="pt-8 rounded-xl bg-white">
 
-                        <div className="flex sm:flex-wrap lg:flex-nowrap items-center gap-10 w-full ">
+                        <div className="flex justify-center flex-wrap lg:flex-nowrap items-center gap-10 w-full">
                             <div className="w-1/3 sm:w-1/6 flex flex-col group gap-2 justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl mt-auto">
                                 {/* <div
                 className='rounded-xl w-12 relative aspect-square md:aspect-[2.4/1] overflow-hidden bg-cover'

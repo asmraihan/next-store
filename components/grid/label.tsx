@@ -4,12 +4,12 @@ import clsx from 'clsx';
 const Label = ({
   title,
   amount,
-  currencyCode,
+
   position = 'bottom'
 }: {
   title: string;
   amount: string;
-  currencyCode: string;
+
   position?: 'bottom' | 'center';
 }) => {
   return (
