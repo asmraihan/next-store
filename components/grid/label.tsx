@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Currency from '../ui/currency';
 // import Price from './price';
 
 const Label = ({
@@ -22,10 +23,11 @@ const Label = ({
         <h3 className="mr-4 line-clamp-2 flex-grow pl-2 leading-none tracking-tight">{title}</h3>
         <div
           className="flex-none rounded-full bg-blue-600 p-2 text-white"
-        //   amount={amount}
-        //   currencyCode={currencyCode}
-        //   currencyCodeClassName="hidden @[275px]/label:inline"
-        />
+          // amount={amount}
+          // currencyCodeClassName="hidden @[275px]/label:inline"
+        >
+          <Currency value={amount} />
+        </div>
       </div>
     </div>
   );
