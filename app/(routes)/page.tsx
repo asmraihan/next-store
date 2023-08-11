@@ -24,7 +24,7 @@ const HomePage = async () => {
         <div className='space-y-10 pb-10'>
           <Billboard data={billboard} />
         </div>
-        <div className=''>
+        <div className='mb-10'>
           <ThreeItemGrid items={products} />
         </div>
      
@@ -32,7 +32,7 @@ const HomePage = async () => {
             <Carousel items={products} />
           </Suspense>
     
-        <div className='flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8 mt-20'>
+        <div className='flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8 mt-10 lg:mt-20'>
           <ProductList title="Featured Products" items={products} />
         </div>
         <div className='space-y-10 pb-10'>

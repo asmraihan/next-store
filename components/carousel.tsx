@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { GridTileImage } from './grid/tile';
 import getProducts from '@/actions/get-products';
 import { Product } from '@/types';
-import Container from './ui/container';
 
 interface CarouselProps {
     items: Product[]
@@ -13,14 +12,14 @@ export const Carousel:React.FC<CarouselProps> = async({
     items
 })=> {
   // Collections that start with `hidden-*` are hidden from the search page.
-  const products = await getProducts({ isFeatured: true })
+  const products = await getProducts({})
   if (!products?.length) return null;
 
   // Purposefully duplicating products to make the carousel loop and not run out of products on wide screens.
   const carouselProducts = [...products, ...products, ...products];
 
   return (
-    <Container >
+    <div className=" w-full overflow-x-auto lg:overflow-hidden pb-6 pt-1">
       <ul className="flex animate-carousel gap-4">
         {carouselProducts.map((product, i) => (
           <li
@@ -42,6 +41,6 @@ export const Carousel:React.FC<CarouselProps> = async({
           </li>
         ))}
       </ul>
-    </Container>
+    </div>
   );
 }
