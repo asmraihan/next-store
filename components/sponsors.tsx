@@ -1,6 +1,4 @@
-import { cn } from '@/lib/utils'
 import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 
 const Sponsor = () => {
@@ -20,19 +18,6 @@ const Sponsor = () => {
 
                         <div className="flex justify-center flex-wrap lg:flex-nowrap items-center gap-10 w-full">
                             <div className="w-1/3 sm:w-1/6 flex flex-col group gap-2 justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl mt-auto">
-                                {/* <div
-                className='rounded-xl w-12 relative aspect-square md:aspect-[2.4/1] overflow-hidden bg-cover'
-                style={{ 
-                    backgroundImage: `url(https://cdn-icons-png.flaticon.com/128/919/919832.png)`,
-                 }}>
-
-                </div> */}
-                                {/* <img
-          className="focus:outline-none w-12 sm:w-16 "
-          src="https://cdn-icons-png.flaticon.com/128/3800/3800024.png"
-          alt="Adidas"
-          role="img"
-        /> */}
                                 <Image
                                     src='/images/nextjs.png'
                                     alt='image'

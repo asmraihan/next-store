@@ -134,12 +134,10 @@ const SalesMetrics = async () => {
                 <div className='lg:w-1/2 space-y-2'>
                     {
                         orders
-                            //@ts-ignore
                             .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()) // Sort 
                             .slice(0, 4) 
                             .map((order) => (
-                                   //@ts-ignore
-                                <OrderRows key={order.id} order={order} />
+                                <OrderRows key={order.id} data={order}/>
                             ))
                     }
 

@@ -1,5 +1,4 @@
 "use client"
-
 import * as React from "react"
 import { useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
@@ -17,14 +16,12 @@ import { Icons } from "@/components/icons"
 import { Button } from "@/components/ui/button"
 import { Product } from "@/types"
 
-
 interface ComboboxProps {
   data: Product[]
 }
 
 export const Combobox: React.FC<ComboboxProps> = ({
   data
-
 }) => {
   // console.log(data)
   const [isMacOs, setIsMacOs] = React.useState(false)
@@ -33,7 +30,7 @@ export const Combobox: React.FC<ComboboxProps> = ({
   const [query, setQuery] = React.useState("")
   const debouncedQuery = useDebounce(query, 300)
   // console.log(debouncedQuery)
-  const [product, setProduct] = React.useState([])
+  const [product, setProduct] = React.useState<Product[]>([])
   // console.log(product)
   const [isPending, startTransition] = React.useTransition()
 
@@ -45,7 +42,7 @@ export const Combobox: React.FC<ComboboxProps> = ({
       const filtered = data.filter((product) => {
         return product.name.toLowerCase().includes(debouncedQuery.toLowerCase())
       })
-      //@ts-ignore
+ 
       setProduct(filtered)
 
     }

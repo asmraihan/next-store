@@ -7,7 +7,6 @@ interface CarouselProps {
     items: Product[]
 }
 
-
 export const Carousel:React.FC<CarouselProps> = async({
     items
 })=> {

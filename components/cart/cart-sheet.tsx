@@ -1,12 +1,7 @@
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import {
     Sheet,
-    SheetClose,
     SheetContent,
-    SheetDescription,
-    SheetFooter,
     SheetHeader,
     SheetTitle,
     SheetTrigger,
@@ -37,14 +32,11 @@ const CartSheet = () => {
             <SheetContent className="flex w-full flex-col  sm:max-w-lg overflow-y-auto">
                 <SheetHeader>
                     <SheetTitle className="flex items-center gap-2">  <ShoppingCart size={20} /> <h2>Shopping Cart</h2> </SheetTitle>
-                    {/* <SheetDescription >
-            Make changes to your profile here.
-          </SheetDescription> */}
                 </SheetHeader>
                 <div className="bg-white mt-4">
                     <div className="">
-                        {cart.items.length === 0 && 
-                        <div className="flex justify-center items-center"><p className="text-neutral-500">No items added to cart.</p></div>
+                        {cart.items.length === 0 &&
+                            <div className="flex justify-center items-center"><p className="text-neutral-500">No items added to cart.</p></div>
                         }
                         <ul>
                             {cart.items.map((item) => (
