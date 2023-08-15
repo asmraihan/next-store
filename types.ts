@@ -36,3 +36,13 @@ export interface Color {
     name : string
     value : string
 }
+
+export interface Order {
+    id: string
+    storeId: string
+    isPaid: string
+    phone: string
+    address: string
+    createdAt: string
+    updatedAt: string
+}

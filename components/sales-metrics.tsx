@@ -5,12 +5,20 @@ import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import getOrders from '@/actions/get-orders'
 import OrderRows from './rows/order-rows'
-
+import getSold from '@/actions/get-sold'
+import { Order } from '@/types' 
+import getStock from '@/actions/get-stock'
+import getRevenue from '@/actions/get-revenue'
 
 const SalesMetrics = async () => {
     const orders = await getOrders()
-    console.log(orders)
-
+    // console.log(orders)
+    const salesNumber = await getSold()
+    const stockNumber = await getStock()
+    const revenue = await getRevenue()
+    const values = Object.values(revenue)
+    const value = values[0];
+    console.log(value)
     return (
         <div className='mx-4 lg:mx-0'>
             <h2 className="text-2xl font-extrabold sm:text-3xl mb-2">
@@ -40,7 +48,7 @@ const SalesMetrics = async () => {
                             </svg>
                         </CardHeader>
                         <CardContent>
-                            <div className="text-2xl font-bold">$45,231.89</div>
+                            <div className="text-2xl font-bold">${value as string}</div>
                             <p className="text-xs text-muted-foreground">
                                 +20.1% from last month
                             </p>
@@ -49,7 +57,7 @@ const SalesMetrics = async () => {
                     <Card>
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                             <CardTitle className="text-sm font-medium">
-                                Subscriptions
+                                Stock
                             </CardTitle>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +75,7 @@ const SalesMetrics = async () => {
                             </svg>
                         </CardHeader>
                         <CardContent>
-                            <div className="text-2xl font-bold">+2350</div>
+                            <div className="text-2xl font-bold">+{stockNumber}</div>
                             <p className="text-xs text-muted-foreground">
                                 +180.1% from last month
                             </p>
@@ -91,7 +99,7 @@ const SalesMetrics = async () => {
                             </svg>
                         </CardHeader>
                         <CardContent>
-                            <div className="text-2xl font-bold">+12,234</div>
+                            <div className="text-2xl font-bold">+{salesNumber}</div>
                             <p className="text-xs text-muted-foreground">
                                 +19% from last month
                             </p>
@@ -125,10 +133,14 @@ const SalesMetrics = async () => {
                 </div>
                 <div className='lg:w-1/2 space-y-2'>
                     {
-                        orders.slice(0,3).map((order) => (
-                                //@ts-ignore
-                           <OrderRows key={order.id} order={order} />
-                        ))
+                        orders
+                            //@ts-ignore
+                            .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()) // Sort 
+                            .slice(0, 4) 
+                            .map((order) => (
+                                   //@ts-ignore
+                                <OrderRows key={order.id} order={order} />
+                            ))
                     }
 
                 </div>
