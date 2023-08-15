@@ -23,15 +23,12 @@ interface ComboboxProps {
 export const Combobox: React.FC<ComboboxProps> = ({
   data
 }) => {
-  // console.log(data)
   const [isMacOs, setIsMacOs] = React.useState(false)
   const router = useRouter()
   const [isOpen, setIsOpen] = React.useState(false)
   const [query, setQuery] = React.useState("")
   const debouncedQuery = useDebounce(query, 300)
-  // console.log(debouncedQuery)
   const [product, setProduct] = React.useState<Product[]>([])
-  // console.log(product)
   const [isPending, startTransition] = React.useTransition()
 
   React.useEffect(() => {

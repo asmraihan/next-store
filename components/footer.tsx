@@ -1,5 +1,4 @@
 import Link from "next/link"
-
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 // import { SubscribeToNewsletterForm } from "@/components/forms/subscribe-to-newsletter-form"
@@ -30,9 +29,7 @@ export async function Footer() {
               href="/"
               className="flex items-center space-x-2"
             >
-              {/* <Icons.logo className="h-6 w-6" aria-hidden="true" /> */}
               <Zap className="h-6 w-6" aria-hidden="true" />
-              {/* <span className="font-bold">{siteConfig.name}</span> */}
               <span className="font-bold">NEXT_STORE</span>
             </Link>
           </section>
@@ -49,7 +46,6 @@ export async function Footer() {
                   <li key={link.name}>
                     <Link
                       href={`/category/${link.id}`}
-                      // target={link?.name ? "_blank" : undefined}
                       rel={link?.name ? "noreferrer" : undefined}
                       className="text-sm text-muted-foreground cursor-pointer font-semibold transition-colors hover:text-foreground"
                     >
@@ -157,7 +153,6 @@ export async function Footer() {
           </div>
           <div className="flex items-center space-x-1">
             <Link
-              // href={siteConfig.links.github}
               href='https://github.com/asmraihan/next-store'
               target="_blank"
               rel="noreferrer"

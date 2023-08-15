@@ -31,9 +31,7 @@ const MainNav: React.FC<MainNavProps> = ({
               route.active ? "text-black border-b border-gray-500" : "text-neutral-500"
             )}
           >
-
             {route.label}
-
           </Link>
         ))
       }

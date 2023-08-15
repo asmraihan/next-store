@@ -1,9 +1,8 @@
 import React from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
+import { Card } from '../ui/card'
 import { format } from 'date-fns'
 import { Order } from '@/types'
-
 
 interface OrderProps {
    data: Order

@@ -1,6 +1,5 @@
 import getProducts from '@/actions/get-products';
 import { GridTileImage } from '@/components/grid/tile';
-// import { getCollectionProducts } from 'lib/shopify';
 import { Product } from '@/types'
 import Link from 'next/link';
 

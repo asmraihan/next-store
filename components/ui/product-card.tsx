@@ -5,7 +5,6 @@ import { MouseEventHandler } from "react"
 import { Icons } from "../icons"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
-
 import {
     Card,
     CardContent,
@@ -34,10 +33,6 @@ const formatter = new Intl.NumberFormat('en-US', {
 const ProductCard: React.FC<ProductCardProps> = ({
     data,
 }) => {
-    // const router = useRouter()
-    // const handleClick = () => {
-    //     router.push(`/product/${data?.id}`)
-    // }
 
     const cart = useCart()
     const [isPending, startTransition] = React.useTransition()

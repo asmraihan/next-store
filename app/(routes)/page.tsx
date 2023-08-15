@@ -1,5 +1,4 @@
 import React from 'react'
-import { Badge } from "@/components/ui/badge"
 import Container from '@/components/ui/container'
 import Billboard from '@/components/billboard'
 import getBillboard from '@/actions/get-billboard'

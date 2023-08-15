@@ -1,18 +1,13 @@
-import { cn } from '@/lib/utils'
-import Link from 'next/link'
 import React from 'react'
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import getOrders from '@/actions/get-orders'
 import OrderRows from './rows/order-rows'
 import getSold from '@/actions/get-sold'
-import { Order } from '@/types' 
 import getStock from '@/actions/get-stock'
 import getRevenue from '@/actions/get-revenue'
 
 const SalesMetrics = async () => {
     const orders = await getOrders()
-    // console.log(orders)
     const salesNumber = await getSold()
     const stockNumber = await getStock()
     const revenue = await getRevenue()
@@ -135,9 +130,9 @@ const SalesMetrics = async () => {
                     {
                         orders
                             .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()) // Sort 
-                            .slice(0, 4) 
+                            .slice(0, 4)
                             .map((order) => (
-                                <OrderRows key={order.id} data={order}/>
+                                <OrderRows key={order.id} data={order} />
                             ))
                     }
 

@@ -1,33 +1,15 @@
 'use client'
 import React, { useState } from 'react'
-
 import axios from "axios";
-import { useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-
 import Currency from "@/components/ui/currency";
 import useCart from "@/hooks/use-cart";
-import { toast } from "react-hot-toast";
 import { Button } from '../ui/button';
 import { Icons } from '../icons';
-
 
 const Summary = () => {
     const [isPending, setIsPending] = useState(false)
 
-    // const searchParams = useSearchParams()
     const items = useCart((state) => state.items)
-    // const removeAll = useCart((state) => state.removeAll)
-    // const router = useRouter()
-    // useEffect(() => {
-    //     if(searchParams.get("success")){
-    //         toast.success("Payment was successful")
-    //         removeAll()
-    //     }
-    //     if(searchParams.get("canceled")){
-    //         toast.error("Payment was canceled")
-    //     }
-    // }, [searchParams, removeAll, router])
 
     const totalPrice = items.reduce((total, item) => {
         return total + Number(item.price)

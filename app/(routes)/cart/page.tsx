@@ -3,14 +3,13 @@
 import { Button } from '@/components/ui/button'
 import useCart from '@/hooks/use-cart'
 import Link from 'next/link'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import React, { useEffect } from 'react'
 import { toast } from "react-hot-toast";
 const CartPage = () => {
   const searchParams = useSearchParams()
 
   const removeAll = useCart((state) => state.removeAll)
-  // const router = useRouter()
   useEffect(() => {
     if(searchParams.get("success")){
         toast.success("Payment was successful")
