@@ -1,11 +1,16 @@
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import React from 'react'
-import { buttonVariants } from './ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
+import getOrders from '@/actions/get-orders'
+import OrderRows from './rows/order-rows'
 
-const SalesMetrics = () => {
+
+const SalesMetrics = async () => {
+    const orders = await getOrders()
+    console.log(orders)
+
     return (
         <div className='mx-4 lg:mx-0'>
             <h2 className="text-2xl font-extrabold sm:text-3xl mb-2">
@@ -119,58 +124,13 @@ const SalesMetrics = () => {
                     </Card>
                 </div>
                 <div className='lg:w-1/2 space-y-2'>
-                    <Card className="flex items-center p-3">
-                        <Avatar className="h-9 w-9">
-                            <AvatarImage src="/images/02.png" alt="Avatar" />
-                            <AvatarFallback>OM</AvatarFallback>
-                        </Avatar>
-                        <div className="ml-4 space-y-1">
-                            <p className="text-sm font-medium leading-none">Olivia Martin</p>
-                            <p className="text-sm text-muted-foreground">
-                                olivia.martin@email.com
-                            </p>
-                        </div>
-                        <div className="ml-auto font-medium">+$1,999.00</div>
-                    </Card>
-                    <Card className="flex items-center p-3">
-                        <Avatar className="h-9 w-9">
-                            <AvatarImage src="/images/05.png" alt="Avatar" />
-                            <AvatarFallback>OM</AvatarFallback>
-                        </Avatar>
-                        <div className="ml-4 space-y-1">
-                            <p className="text-sm font-medium leading-none">Jackson Lee</p>
-                            <p className="text-sm text-muted-foreground">
-                                jackson.lee@email.com
-                            </p>
-                        </div>
-                        <div className="ml-auto font-medium">+$1,999.00</div>
-                    </Card>
-                    <Card className="flex items-center p-3">
-                        <Avatar className="h-9 w-9">
-                            <AvatarImage src="/images/02.png" alt="Avatar" />
-                            <AvatarFallback>OM</AvatarFallback>
-                        </Avatar>
-                        <div className="ml-4 space-y-1">
-                            <p className="text-sm font-medium leading-none">Isabella Nguyen</p>
-                            <p className="text-sm text-muted-foreground">
-                                sabella.nguyen@email.com
-                            </p>
-                        </div>
-                        <div className="ml-auto font-medium">+$1,999.00</div>
-                    </Card>
-                    <Card className="flex items-center p-3">
-                        <Avatar className="h-9 w-9">
-                            <AvatarImage src="/images/05.png" alt="Avatar" />
-                            <AvatarFallback>OM</AvatarFallback>
-                        </Avatar>
-                        <div className="ml-4 space-y-1">
-                            <p className="text-sm font-medium leading-none">William Kim</p>
-                            <p className="text-sm text-muted-foreground">
-                                will@email.com
-                            </p>
-                        </div>
-                        <div className="ml-auto font-medium">+$1,999.00</div>
-                    </Card>
+                    {
+                        orders.slice(0,3).map((order) => (
+                                //@ts-ignore
+                           <OrderRows key={order.id} order={order} />
+                        ))
+                    }
+
                 </div>
             </div>
         </div>
