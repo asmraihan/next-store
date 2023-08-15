@@ -120,7 +120,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                         aria-label="Preview product"
                         variant={"outline"}
                         size={"sm"}
-                        className="h-8 w-full rounded-sm"
+                        className="w-full rounded-sm"
                         onClick={onPreview}
                     >
                         <Expand className="w-4 h-4 mr-2" />Preview
@@ -128,7 +128,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     <Button
                         aria-label="Add to cart"
                         size="sm"
-                        className="h-8 w-full rounded-sm"
+                        className="w-full rounded-sm"
                         disabled={isPending}
                         onClick={onAddToCart}
                     >

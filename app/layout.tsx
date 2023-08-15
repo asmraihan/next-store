@@ -25,7 +25,28 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-        <Toaster />
+        <Toaster
+        toastOptions={{
+          className: 'mt-10',
+          style: {
+            border: '1px solid #E6E9EC',
+            padding: '16px',
+            color: '#000000',
+          },
+          success: {
+            iconTheme: {
+              primary: 'black',
+              secondary: 'white',
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: 'black',
+              secondary: 'white',
+            },
+          },
+        }}
+        />
       </body>
     </html>
   )
